@@ -1,0 +1,55 @@
+.sidebar {
+    flex: 3;
+    margin: 20px;
+    background-color: coral;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.sidebarItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebarTitle {
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+.sidebarList {
+    list-style: square;
+    width: 100%;
+}
+
+.sidebarListItem {
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.sidebarSocial {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.sidebarSocialIcon {
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.sidebar > p {
+    margin: 10px;
+}

@@ -1,0 +1,130 @@
+.singlePost {
+    flex: 9;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.singlePostWrapper {
+    margin: 0 25px 40px 25px;
+    font-weight: 300;
+}
+
+.singlePostInfo > img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.singlePostInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.singlePostCategories {
+    margin-top: 20px;
+    float: left;
+}
+
+.singlePostCategory {
+    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 1.1em;
+    color: coral;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.singlePostSubHeader {
+    width: 100%;
+
+}
+
+.singlePostEdit {
+    padding-bottom: 20px;
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: coral;
+    line-height: 20px;
+    float: right;
+}
+.singlePostEdit > i {
+    margin-left: 15px;
+    font-size: 1.1em;
+    color: coral;
+    cursor: pointer;
+}
+
+.singlePostTitle {
+    margin: 10px;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.singlePostDate {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: gray;
+    font-weight: 400;
+}
+
+.singlePostContent {
+    margin: 10px;
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+/*Test*/
+
+.singlePostHeader {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.singlePostHeaderImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.singlePostHeaderOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Adjust darkness here */
+    z-index: 1;
+}
+
+.singlePostHeaderTitles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: coral;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.singlePostHeaderTitleLg {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.singlePostHeaderTitleSm {
+    font-size: 1.5rem;
+}
+
+.contentSubHeading {
+    font-weight: 800;
+    color: coral;
+}

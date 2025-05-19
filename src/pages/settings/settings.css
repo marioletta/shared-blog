@@ -1,0 +1,59 @@
+.settings {
+    display: flex;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.settingsWrapper {
+    flex: 9;
+    padding: 20px;
+
+}
+
+.settingsForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settingsUpdateTitle {
+    color: coral;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.settingsDeleteTitle {
+    color: coral;
+    cursor: pointer;
+}
+
+.settingsUpdateButton {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    background-color: coral;
+    color: white;
+}
+
+.topUserIcon {
+    cursor: pointer;
+}
+
+.settingsForm > label {
+    font-size: 20px;
+    margin-top: 20px;
+}
+.settingsForm > input {
+    font-size: 20px;
+    border: none;
+    margin: 10px 0;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}

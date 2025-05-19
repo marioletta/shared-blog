@@ -1,0 +1,44 @@
+.header {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.headerImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.headerOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Adjust darkness here */
+    z-index: 1;
+}
+
+.headerTitles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: coral;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.headerTitleLg {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.headerTitleSm {
+    font-size: 1.5rem;
+}
