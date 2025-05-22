@@ -2,6 +2,7 @@ import "./topbar.css"
 import { Link } from "react-router-dom";
 
 export default function TopBar() {
+
     const user = true;
 
     return (
@@ -17,18 +18,13 @@ export default function TopBar() {
 
             <div className="topCenter">
                 <ul className="topList">
-                    <i className="topListItem"><Link className="link" to="/">Home</Link></i>
-                    <i className="topListItem"><Link className="link" to="/about">About</Link></i>
-                    <i className="topListItem"><Link className="link" to="/contact">Contact</Link></i>
-                    <i className="topListItem"><Link className="link" to="/write">Write</Link></i>
+                    <li className="topListItem"><Link className="link" to="/">Home</Link></li>
+                    <li className="topListItem"><Link className="link" to="/writers">Writers</Link></li>
                     {
                         user ? (
-                            <i className="topListItem"><Link className="link" to="/log-out">Log out</Link></i>
-                        ) : (
-                            ""
-                        )
+                            <li className="topListItem"><Link className="link" to="/write">Write</Link></li>
+                        ) : ("")
                     }
-
                 </ul>
             </div>
 
@@ -40,13 +36,13 @@ export default function TopBar() {
                 <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
                 {
                     user ? (
-                        <i className="topUserIcon fa-solid fa-user"></i>
+                        <Link className="link" to="/settings"><i className="topUserIcon fa-solid fa-user"></i></Link>
                     ) : (
                         <>
-                        <ul className="topList">
-                            <li className="topListItem"><Link className="link" to="/login">LOG IN</Link></li>
-                            <li className="topListItem"><Link className="link" to="/register">REGISTER</Link></li>
-                        </ul>
+                            <ul className="topList">
+                                <li className="topListItem"><Link className="link" to="/login">LOG IN</Link></li>
+                                <li className="topListItem"><Link className="link" to="/register">REGISTER</Link></li>
+                            </ul>
                         </>
                     )
                 }

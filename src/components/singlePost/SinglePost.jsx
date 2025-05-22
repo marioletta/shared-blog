@@ -1,7 +1,53 @@
 import "./singlePost.css"
+import {useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
+import format from "date-fns/format";
+
 
 export default function SinglePost() {
+    const user = true;
+
+    const { postId } = useParams();
+    const [post, setPost] = useState(null);
+    const navigate = useNavigate();
+
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/post/${postId}`)
+            .then((res) => {
+                if (!res.ok) {
+                    console.error("No post found with ID: " + postId );
+                    navigate("/page-not-found");
+                    return;
+                }
+                return res.json();
+            })
+            .then((json) => setPost(json));
+}, [postId, navigate]);
+
+
+
+    const removePost = (postId) => {
+        const confirmed = window.confirm("Are you sure you want to delete this post?");
+
+        if (!confirmed) return;
+
+        fetch(`http://localhost:8080/posts/${postId}`, {method: 'DELETE'})
+            .then((res) => {
+                if (!res.ok) {
+                    console.error("Something went wrong and couldn't delete post with ID: " + postId );
+                    navigate("/page-not-found");
+                    return;
+                }
+                navigate("/");
+            })
+    };
+
+    if (!post) return false;
+
     return(
+
         <>
 
             <div className="singlePost">
@@ -12,56 +58,31 @@ export default function SinglePost() {
                         <div className="singlePostHeader">
                             <div className="singlePostHeaderOverlay"></div>
                             <div className="singlePostHeaderTitles">
-                                <span className="singlePostHeaderTitleLg">Feed Your Soil, Feed Your Veggies: </span><br/>
-                                <span className="singlePostHeaderTitleSm">The Secret to a Thriving Vegetable Garden</span>
+                                <span className="singlePostHeaderTitleLg">{post?.title}</span><br/>
+                                <span className="singlePostHeaderTitleSm">{post?.subTitle}</span>
                             </div>
-                            <img className="singlePostHeaderImg" src="https://img.freepik.com/free-vector/new-normal-hobby-doodle-vector-with-plant-parent_53876-140948.jpg?ga=GA1.1.2017358606.1747576772&semt=ais_hybrid&w=740"  alt=""/>
+                            <img className="singlePostHeaderImg" src={post?.image}  alt=""/>
                         </div>
 
                         <div className="singlePostSubHeader">
                             <div className="singlePostCategories">
-                                <span className="singlePostCategory">Vegetable Gardening</span>
-                                <span className="singlePostCategory">Soil & Composting</span>
-                                <span className="singlePostDate">1 hour ago</span>
+                                {post.category?.map(cat => (
+                                    <span key={cat.id} className="singlePostCategory">{cat.name}</span>
+                                ))}
+                                <span className="singlePostDate">{format(new Date(post?.timestamp), 'MMMM d, yyyy')}</span>
 
                             </div>
-                            <div className="singlePostEdit">
-                                <i className="sidebarSocialIcon fa-solid fa-pen-to-square"></i>
-                                <i className="sidebarSocialIcon fa-solid fa-trash"></i>
-                            </div>
+                                {
+                                    user ? (
+                                        <div className="singlePostEdit">
+                                            <i onClick={() => navigate(`/edit/${post?.id}`)} className="sidebarSocialIcon fa-solid fa-pen-to-square"></i>
+                                            <i onClick={() => removePost(post?.id)} className="sidebarSocialIcon fa-solid fa-trash"></i>
+                                        </div>
+                                    ) : ( "" )
+                                }
                         </div>
 
-
-                        <div className="singlePostContent">
-                            <p>Growing your own vegetables isn’t just about planting seeds and watering them—it's about building a living, breathing ecosystem right beneath your feet. The health of your soil is the foundation of every successful vegetable garden. In this post, we’ll explore how enriching your soil naturally through composting can lead to tastier, more nutritious vegetables. </p>
-                            <span className="contentSubHeading">🌿  Why Soil Health Matters</span><br/>
-                            <p>
-                                Healthy soil is full of life: bacteria, fungi, worms, and other microorganisms work together to break down organic matter and make nutrients available to your plants. Without this balance, your vegetables may survive—but they won’t thrive.
-                                <br/>
-                                <br/><span>Poor soil means:</span>
-                                <ul>
-                                    <li>Stunted growth</li>
-                                    <li>Low yields</li>
-                                    <li>Increased susceptibility to pests and disease</li>
-                                </ul>
-                                But the good news? You can fix that with compost.
-                            </p>
-                            <span className="contentSubHeading">♻️ Compost: Nature’s Fertilizer</span><br/>
-                            <p>
-                                Compost is decomposed organic material like food scraps, leaves, and garden waste. When added to your garden, it:
-                                <ul>
-                                    <li>Improves soil structure</li>
-                                    <li>Boosts nutrient content</li>
-                                    <li>Retains moisture</li>
-                                    <li>Encourages beneficial microbes</li>
-                                </ul>
-                            </p>
-                            <span className="contentSubHeading">🌻 Final Thought</span><br/>
-                            <p>
-                                When you feed your soil, you’re not just helping your vegetables grow—you’re creating a more sustainable, self-sufficient garden. The best part? Your food will taste better and be better for you, straight from soil that’s as alive as the plants it supports.
-                                <br/><br/>Happy growing!
-                            </p>
-                        </div>
+                        <div className="singlePostContent">{post?.content}</div>
                     </div>
 
                 </div>

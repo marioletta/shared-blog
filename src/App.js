@@ -10,6 +10,9 @@ import {
     Route,
     Routes
 } from "react-router-dom";
+import Writers from "./pages/writers/Writers";
+import PageNotFound from "./pages/errors/PageNotFound";
+import Edit from "./pages/edit/Edit";
 
 function App() {
 
@@ -22,9 +25,12 @@ function App() {
                 <Route path="/" element={<Home />}/>
                 <Route path="/register" element={user ? <Home /> : <Register />}/>
                 <Route path="/login" element={user ? <Home /> : <Login />}/>
+                <Route path="/writers" element={<Writers />}/>
                 <Route path="/write" element={user ? <Write /> : <Register />}/>
                 <Route path="/settings" element={user ? <Settings /> : <Register />}/>
                 <Route path="/post/:postId" element={<Single />}/>
+                <Route path="/page-not-found" element={<PageNotFound />}/>
+                <Route path="/edit/:postId" element={<Edit />}/>
             </Routes>
         </Router>
     );

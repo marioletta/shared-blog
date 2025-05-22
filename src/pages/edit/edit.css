@@ -1,4 +1,4 @@
-.writeIcon {
+.editIcon {
     width: 25px;
     height: 25px;
     align-items: center;
@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-.writeInput {
+.editInput {
     border: none;
     padding: 20px;
     font-family: 'Josefin Sans', sans-serif;
@@ -17,38 +17,38 @@
     width: 70vw;
 }
 
-.writeHeading {
+.editHeading {
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
 }
 
-.writeSubHeading {
+.editSubHeading {
     font-size: 1.5rem;
     font-weight: 300;
     text-align: center;
 }
 
 
-.writeInput::placeholder {
+.editInput::placeholder {
     color: white;
 }
 
-.writeInput:focus {
+.editInput:focus {
     outline: none;
 }
 
-.writeText {
+.editText {
     font-size: 24px;
     height: 100vh;
     color: gray;
 }
 
-.writeText::placeholder {
+.editText::placeholder {
     color: gray;
 }
 
-.writeCoverUpload {
+.editCoverUpload {
     position: absolute;
     padding: 10px;
     margin: 0 0 0 10px;
@@ -62,7 +62,7 @@
     z-index: 999;
 }
 
-.writeSubmit {
+.editSubmit {
     position: relative;
     padding: 10px;
     margin: 0 0 0 10px;
@@ -75,35 +75,35 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.writePost {
+.editPost {
     flex: 9;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.writePostWrapper {
+.editPostWrapper {
     margin: 0 25px 40px 25px;
     font-weight: 300;
 }
 
-.writePostInfo > img {
+.editPostInfo > img {
     height: 200px;
     width: 100%;
     object-fit: cover;
     border-radius: 15px;
 }
 
-.writePostInfo {
+.editPostInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.writePostCategories {
+.editPostCategories {
     margin-top: 20px;
     float: left;
 }
 
-.writePostCategory {
+.editPostCategory {
     padding-bottom: 20px;
     margin-top: 10px;
     margin-right: 15px;
@@ -114,12 +114,12 @@
     cursor: pointer;
 }
 
-.writePostSubHeader {
+.editPostSubHeader {
     width: 100%;
 
 }
 
-.writePostEdit {
+.editPostEdit {
     padding-bottom: 20px;
     margin-top: 10px;
     font-size: 1.1em;
@@ -128,23 +128,23 @@
     float: right;
 }
 
-.writePostEdit > label {
+.editPostEdit > label {
     font-size: 1.1em;
 }
 
-.writePostEdit > i {
+.editPostEdit > i {
     margin-left: 15px;
     font-size: 1.1em;
     color: coral;
     cursor: pointer;
 }
 
-.writeCategory {
+.editCategory {
     font-family: 'Josefin Sans', sans-serif;
     color: coral;
 }
 
-.writeSelect {
+.editSelect {
     height: 30px;
     border: none;
     font-family: 'Josefin Sans', sans-serif;
@@ -152,27 +152,27 @@
     font-size: 20px;
 }
 
-.writePostTitle {
+.editPostTitle {
     margin: 10px;
     font-size: 1.5em;
     font-weight: 400;
 }
 
-.writePostDate {
+.editPostDate {
     margin-top: 10px;
     font-size: 1.1em;
     color: gray;
     font-weight: 400;
 }
 
-.writePostContent {
+.editPostContent {
     margin: 10px;
     font-size: 1.3em;
     font-weight: 300;
     line-height: 20px;
 }
 
-.writePostHeader {
+.editPostHeader {
     position: relative;
     width: 100%;
     height: 450px;
@@ -180,14 +180,14 @@
     overflow: hidden;
 }
 
-.writePostHeaderImg {
+.editPostHeaderImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.writePostHeaderOverlay {
+.editPostHeaderOverlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -197,7 +197,7 @@
     z-index: 1;
 }
 
-.writePostHeaderTitles {
+.editPostHeaderTitles {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -208,12 +208,12 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.writePostHeaderTitleLg {
+.editPostHeaderTitleLg {
     font-size: 3rem;
     font-weight: bold;
 }
 
-.writePostHeaderTitleSm {
+.editPostHeaderTitleSm {
     font-size: 1.5rem;
 }
 
