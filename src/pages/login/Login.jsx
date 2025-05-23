@@ -1,9 +1,11 @@
 import "./login.css"
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContext";
 
 export default function Login() {
     const [authCredentials, setAuthCredentials] = useState({});
+    const {setLoggedIn} = useContext(AuthContext);
 
     const login = () => {
         fetch("http://localhost:8080/login", {
@@ -16,6 +18,7 @@ export default function Login() {
             .then(json => {
                 if (json.id) {
                     sessionStorage.setItem("token", json.id);
+                    setLoggedIn(true);
                 } else {
                     alert("Something went wrong!");
                 }

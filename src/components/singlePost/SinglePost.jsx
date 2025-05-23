@@ -1,11 +1,12 @@
 import "./singlePost.css"
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import format from "date-fns/format";
+import {AuthContext} from "../../context/AuthContext";
 
 
 export default function SinglePost() {
-    const user = true;
+    const {loggedIn} = useContext(AuthContext);
 
     const { postId } = useParams();
     const [post, setPost] = useState(null);
@@ -73,7 +74,7 @@ export default function SinglePost() {
 
                             </div>
                                 {
-                                    user ? (
+                                    loggedIn ? (
                                         <div className="singlePostEdit">
                                             <i onClick={() => navigate(`/edit/${post?.id}`)} className="sidebarSocialIcon fa-solid fa-pen-to-square"></i>
                                             <i onClick={() => removePost(post?.id)} className="sidebarSocialIcon fa-solid fa-trash"></i>

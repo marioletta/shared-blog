@@ -1,9 +1,11 @@
 import "./register.css"
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContext";
 
 export default function Register() {
     const [person, setPerson] = useState({});
+    const {setLoggedIn} = useContext(AuthContext);
 
     const signup = () => {
         fetch("http://localhost:8080/signup", {
@@ -16,6 +18,7 @@ export default function Register() {
             .then(json => {
                 if (json.id) {
                     sessionStorage.setItem("token", json.id);
+                    setLoggedIn(true);
                 } else {
                     alert("Something went wrong!");
                 }

@@ -1,9 +1,12 @@
 import "./topbar.css"
 import { Link } from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext";
 
 export default function TopBar() {
 
-    const user = true;
+    // const user = true;
+    const {loggedIn} = useContext(AuthContext);
 
     return (
         <div className="top">
@@ -21,7 +24,7 @@ export default function TopBar() {
                     <li className="topListItem"><Link className="link" to="/">Home</Link></li>
                     <li className="topListItem"><Link className="link" to="/writers">Writers</Link></li>
                     {
-                        user ? (
+                        loggedIn ? (
                             <li className="topListItem"><Link className="link" to="/write">Write</Link></li>
                         ) : ("")
                     }
@@ -35,7 +38,7 @@ export default function TopBar() {
                 <i className="topIcon fa-brands fa-square-instagram"></i>
                 <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
                 {
-                    user ? (
+                    loggedIn ? (
                         <Link className="link" to="/settings"><i className="topUserIcon fa-solid fa-user"></i></Link>
                     ) : (
                         <>

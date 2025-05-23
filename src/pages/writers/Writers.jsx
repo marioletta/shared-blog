@@ -9,7 +9,7 @@ export default function Writers() {
 
     useEffect(() => {
         //fetch("http://localhost:8080/public-products-pageable?page=" + page + "&size=2")
-        fetch(`http://localhost:8080/public-users?page=${page}&size=2`)
+        fetch(`http://localhost:8080/public-users?page=${page}`)
             .then(res => res.json())
             .then(json => setWriters(json.content))
     }, [page]);
