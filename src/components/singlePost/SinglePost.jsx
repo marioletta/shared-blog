@@ -3,6 +3,7 @@ import {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import format from "date-fns/format";
 import {AuthContext} from "../../context/AuthContext";
+import {notifySuccess} from "../../utils/ToastNotifications";
 
 
 export default function SinglePost() {
@@ -30,9 +31,9 @@ export default function SinglePost() {
 
 
     const removePost = (postId) => {
-        const confirmed = window.confirm("Are you sure you want to delete this post?");
-
-        if (!confirmed) return;
+        // const confirmed = window.confirm("Are you sure you want to delete this post?");
+        //
+        // if (!confirmed) return;
 
         fetch(`http://localhost:8080/posts/${postId}`, {method: 'DELETE'})
             .then((res) => {
@@ -41,6 +42,7 @@ export default function SinglePost() {
                     navigate("/page-not-found");
                     return;
                 }
+                notifySuccess("Post has been deleted!")
                 navigate("/");
             })
     };

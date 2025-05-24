@@ -4,9 +4,8 @@
 }
 
 .settingsWrapper {
-    flex: 9;
     padding: 20px;
-
+    width: 400px;
 }
 
 .settingsForm {
@@ -21,13 +20,13 @@
 }
 
 .settingsUpdateTitle {
-    color: coral;
+    color: lightgreen;
     font-size: 25px;
     font-weight: 800;
 }
 
 .settingsDeleteTitle {
-    color: coral;
+    color: lightgreen;
     cursor: pointer;
 }
 
@@ -38,12 +37,8 @@
     border-radius: 10px;
     border: none;
     font-size: 16px;
-    background-color: coral;
+    background-color: lightgreen;
     color: white;
-}
-
-.topUserIcon {
-    cursor: pointer;
 }
 
 .settingsForm > label {

@@ -11,25 +11,35 @@ import {
     Route,
     Routes
 } from "react-router-dom";
-import Writers from "./pages/writers/Writers";
+import Team from "./pages/team/Team";
 import PageNotFound from "./pages/errors/PageNotFound";
 import Edit from "./pages/edit/Edit";
 import {useContext} from "react";
 import {AuthContext} from "./context/AuthContext";
+import {ToastContainer} from "react-toastify";
+
 
 function App() {
 
-    // const user = true;
     const {loggedIn} = useContext(AuthContext);
 
     return (
+        <>
+            <ToastContainer/>
+            <ToastContainer
+                containerId="globalContainer"
+                newestOnTop
+                autoClose={6000}
+                theme="dark"
+            />
+
         <Router>
             <TopBar/>
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/register" element={loggedIn ? <Navigate to="/" /> : <Register />}/>
                 <Route path="/login" element={loggedIn ? <Navigate to="/" /> : <Login />}/>
-                <Route path="/writers" element={<Writers />}/>
+                <Route path="/team" element={<Team />}/>
                 <Route path="/write" element={loggedIn ? <Write /> : <Register />}/>
                 <Route path="/settings" element={loggedIn ? <Settings /> : <Navigate to="/login" />}/>
                 <Route path="/post/:postId" element={<Single />}/>
@@ -37,6 +47,8 @@ function App() {
                 <Route path="/edit/:postId" element={<Edit />}/>
             </Routes>
         </Router>
+
+        </>
     );
 }
 

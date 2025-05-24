@@ -1,5 +1,5 @@
 .register {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,7 @@
 }
 
 .registerTitle {
-    color: coral;
+    color: lightgreen;
     font-size: 50px;
     font-weight: 800;
     text-align: center;
@@ -29,7 +29,7 @@
     border-radius: 10px;
     border: none;
     font-size: 16px;
-    background-color: coral;
+    background-color: lightgreen;
     color: white;
     width: 100%;
 }

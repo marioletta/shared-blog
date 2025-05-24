@@ -3,17 +3,16 @@
     height: 25px;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    color: coral;
+    font-size: 30px;
+    color: lightgreen;
     cursor: pointer;
 }
 
 .editInput {
     border: none;
-    padding: 20px;
     font-family: 'Josefin Sans', sans-serif;
     background: none;
-    color: coral;
+    color: lightgreen;
     width: 70vw;
 }
 
@@ -40,8 +39,13 @@
 
 .editText {
     font-size: 24px;
+    font-weight: 300;
+    line-height: 20px;
     height: 100vh;
-    color: gray;
+    color: black;
+    width: 100%;
+    resize: none;
+    outline: none;
 }
 
 .editText::placeholder {
@@ -51,14 +55,12 @@
 .editCoverUpload {
     position: absolute;
     padding: 10px;
-    margin: 0 0 0 10px;
+    margin: 10px 0 0 10px;
     cursor: pointer;
     border-radius: 10px;
     border: none;
-    background-color: coral;
+    background-color: lightgreen;
     color: white;
-    top: 470px;
-    left: 30px;
     z-index: 999;
 }
 
@@ -70,7 +72,7 @@
     border-radius: 10px;
     border: none;
     font-size: 20px;
-    background-color: coral;
+    background-color: lightgreen;
     color: white;
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -81,7 +83,7 @@
 }
 
 .editPostWrapper {
-    margin: 0 25px 40px 25px;
+    margin: 0 30px 30px 30px;
     font-weight: 300;
 }
 
@@ -108,7 +110,7 @@
     margin-top: 10px;
     margin-right: 15px;
     font-size: 20px;
-    color: coral;
+    color: lightgreen;
     font-weight: 400;
     line-height: 20px;
     cursor: pointer;
@@ -123,7 +125,7 @@
     padding-bottom: 20px;
     margin-top: 10px;
     font-size: 1.1em;
-    color: coral;
+    color: lightgreen;
     line-height: 20px;
     float: right;
 }
@@ -135,20 +137,20 @@
 .editPostEdit > i {
     margin-left: 15px;
     font-size: 1.1em;
-    color: coral;
+    color: lightgreen;
     cursor: pointer;
 }
 
 .editCategory {
     font-family: 'Josefin Sans', sans-serif;
-    color: coral;
+    color: lightgreen;
 }
 
 .editSelect {
     height: 30px;
     border: none;
     font-family: 'Josefin Sans', sans-serif;
-    color: coral;
+    color: lightgreen;
     font-size: 20px;
 }
 
@@ -166,17 +168,17 @@
 }
 
 .editPostContent {
-    margin: 10px;
-    font-size: 1.3em;
+    margin: 10px 0 0 0;
+    font-size: 24px;
     font-weight: 300;
     line-height: 20px;
+    width: 100%;
 }
 
 .editPostHeader {
     position: relative;
     width: 100%;
-    height: 450px;
-    margin-top: 20px;
+    height: 200px;
     overflow: hidden;
 }
 
@@ -204,7 +206,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 2;
-    color: coral;
+    color: lightgreen;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -219,5 +221,5 @@
 
 .contentSubHeading {
     font-weight: 800;
-    color: coral;
+    color: lightgreen;
 }

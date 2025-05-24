@@ -1,9 +1,11 @@
 import "./write.css"
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {notifyFail, notifySuccess} from "../../utils/ToastNotifications";
 
 
 export default function Write() {
+
 
     const navigate = useNavigate();
 
@@ -19,8 +21,7 @@ export default function Write() {
 
     const publish = () => {
         post.image = defaultImage;
-        post.person = {id: 1};
-        post.timestamp = new Date().toISOString();
+        post.person = {id : sessionStorage.getItem("token")};
         fetch("http://localhost:8080/posts", {
             method: "POST",
             body: JSON.stringify(post),
@@ -30,16 +31,16 @@ export default function Write() {
         }).then(res => res.json())
             .then(json => {
                 if (json.id) {
-                    alert("Post published!");
+                    notifySuccess("Post published!")
                     navigate("/");
                 } else {
-                    alert("Something went wrong!");
+                    notifyFail(json.message)
                 }
             })
     }
 
     return (
-        <>
+
             <div className="writePost">
 
                 <div className="writePostWrapper">
@@ -85,11 +86,9 @@ export default function Write() {
                             <textarea onChange={(e) => setPost({...post, content: e.target.value})}  placeholder="Tell your story..." className="writeInput writeText"></textarea>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-        </>
 
     )
 }

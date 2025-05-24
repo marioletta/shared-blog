@@ -1,9 +1,9 @@
 .header {
     position: relative;
-    width: 100%;
-    height: 450px;
+    max-width: 1330px;
+    height: 200px;
     overflow: hidden;
-    margin-top: 20px;
+    margin: 0 30px;
 }
 
 .headerImg {
@@ -30,7 +30,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 2;
-    color: coral;
+    color: lightgreen;
     font-family: 'Josefin Sans', sans-serif;
 }
 

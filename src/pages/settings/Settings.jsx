@@ -1,16 +1,34 @@
 import "./settings.css"
-import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
-import {useContext} from "react";
-import {AuthContext} from "../../context/AuthContext";
+import {useEffect, useState} from "react";
+import {notifyFail, notifySuccess} from "../../utils/ToastNotifications";
 
 export default function Settings() {
 
-    const {setLoggedIn} = useContext(AuthContext);
+    const [person, setPerson] = useState({});
+    const id = sessionStorage.getItem("token");
 
-    function logout() {
-        sessionStorage.removeItem("token");
-        setLoggedIn(false);
+    useEffect(() => {
+        fetch(`http://localhost:8080/user/${id}`)
+            .then(res => res.json())
+            .then(data => setPerson(data))
+    }, [id]);
+
+    const update = () => {
+        fetch("http://localhost:8080/user", {
+            method: "PUT",
+            body: JSON.stringify(person),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(json => {
+                if (json.id) {
+                    notifySuccess("Profile updated!");
+                } else {
+                    notifyFail(json.message || "Something went wrong!");
+                }
+            })
     }
 
     return (
@@ -19,22 +37,26 @@ export default function Settings() {
                 <div className="settingsWrapper">
                     <div className="settingsTitle">
                         <span className="settingsUpdateTitle">Settings</span>
-                        <button onClick={logout} className="settingsUpdateButton">Sign Out</button>
                     </div>
                     <br/>
-                    <form className="settingsForm">
+                    <div className="settingsForm">
 
                         <label>Name</label>
-                        <input type="text" placeholder="Jane Doe"/>
+                        <input type="text" placeholder="Jane Doe" defaultValue={person?.name}
+                               onChange={(e) => setPerson({...person, name: e.target.value})}
+                        />
                         <label>Email</label>
-                        <input type="email" placeholder="Jane@greengarden.com"/>
+                        <input type="email" placeholder="Jane@greengarden.com" defaultValue={person?.email}
+                               onChange={(e) => setPerson({...person, email: e.target.value})}
+                        />
                         <label>Password</label>
-                        <input type="password"/>
-                        <button className="settingsUpdateButton">Update profile</button>
-                        <button className="settingsUpdateButton">Delete account</button>
-                    </form>
+                        <input type="password" placeholder=""
+                               onChange={(e) => setPerson({...person, password: e.target.value})}
+                        />
+                        <button onClick={update} className="settingsUpdateButton">Update profile</button>
+                    </div>
                 </div>
-                <Sidebar/>
+                {/*<Sidebar/>*/}
             </div>
         </>
 

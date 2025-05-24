@@ -1,6 +1,49 @@
+.postsContainer {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.postsControls {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 30px;
+}
+
 .posts {
-    flex: 9;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+.postsPageSwitcher {
+    width: 40px;
+    height: 40px;
+    color: lightgreen;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+}
+
+.postsPageSwitcher:disabled {
+    color: #444444;
+    cursor: default;
+}
+
+.currentPage {
+    font-size: 24px;
+}
+
+.searchBox {
+    border: none;
+    font-size: 24px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.searchBox:focus {
+    outline: none;
+    border: none;
+}
+
+.seachIcon {
+    font-size: 16px;
+    color: lightgreen;
 }

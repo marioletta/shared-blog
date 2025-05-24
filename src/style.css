@@ -1,8 +1,38 @@
 body {
-    margin: 0;
+    max-width: 1330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1346px) {
+    body {
+        max-width: 902px;
+    }
+
+    .post, .writer {
+        width: 382px;
+    }
+}
+
+@media (max-width: 902px) {
+    body {
+        max-width: 500px;
+    }
+
+    .post, .writer {
+        width: 100%;
+    }
+
+    .topCenter > ul {
+        display: none;
+    }
 }
 
 .link {
     text-decoration: none;
     color: inherit;
+}
+
+.Toastify__toast-container {
+    z-index: 99999 !important; /* Ensure it's higher than other components like modals or headers */
 }
